@@ -1,8 +1,15 @@
 import React from "react";
 import { GetStaticProps } from "next";
 import Layout from "../components/Layout";
+import { Button } from "../components/Button";
 import Post, { PostProps } from "../components/Post";
 import prisma from "../lib/prisma";
+import {
+  AddIcon,
+  ChangeIcon,
+  FavouriteIcon,
+  LightModeIcon,
+} from "../lib/icons";
 
 export const getStaticProps: GetStaticProps = async () => {
   const feed = await prisma.post.findMany({
@@ -29,6 +36,21 @@ const Blog: React.FC<Props> = (props) => {
     <Layout>
       <div className="page">
         <h1>Public Feed</h1>
+        <Button>Add new</Button>
+        <div style={{ display: "flex", gap: 8, margin: "16px 0" }}>
+          <button className="ghost-button">
+            <ChangeIcon className="w-6 h-6" />
+          </button>
+          <button className="ghost-button">
+            <AddIcon className="w-6 h-6 text-grey" />
+          </button>
+          <button className="ghost-button">
+            <FavouriteIcon className="w-6 h-6 text-red" />
+          </button>
+          <button className="ghost-button">
+            <LightModeIcon className="w-6 h-6 text-grey" />
+          </button>
+        </div>
         <main>
           {props.feed.map((post) => (
             <div key={post.id} className="post">

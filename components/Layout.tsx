@@ -38,6 +38,45 @@ const Layout: React.FC<Props> = (props) => (
       button {
         cursor: pointer;
       }
+      .h-5 {
+        height: 20px;
+      }
+
+      .h-6 {
+        height: 24px;
+      }
+      .w-5 {
+        width: 20px;
+      }
+
+      .w-6 {
+        width: 24px;
+      }
+      .text-red {
+        color: red;
+      }
+      .text-grey {
+        color: grey;
+      }
+      .ghost-button {
+        border: none;
+        background: none;
+        border-radius: 4px;
+        display: grid;
+        place-content: center;
+        padding: 6px;
+        transition: background 0.15s ease-in;
+      }
+      .ghost-button:hover {
+        background: white;
+      }
+      .icon-button {
+        display: flex;
+        align-items: center;
+      }
+      .icon-button span {
+        font-size: 18px;
+      }
     `}</style>
     <style jsx>{`
       .layout {
